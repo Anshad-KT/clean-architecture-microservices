@@ -13,6 +13,8 @@ export = (dependencies:DepenteniciesData):any =>{
    }} = dependencies
    const signupUser = async(req:Request,res:Response,next:NextFunction) => {
     try {
+        console.log(req.body);
+        
         const { email, password } = req.body;
         const isPresent = await getUser_UseCase(dependencies).execute({
             email

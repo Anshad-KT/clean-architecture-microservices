@@ -7,6 +7,7 @@ export = (dependencies: DepenteniciesData): any => {
     useCases: { getAllProducts_UseCase },
   } = dependencies;
 
+
   const getProduct = async (
     req: Request,
     res: Response,

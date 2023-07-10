@@ -8,5 +8,5 @@ export const routes = (dependencies: DepenteniciesData) => {
   const cart = cartRoutes(dependencies);
 
   route.use("/cart", cart);
-  return routes;
+  return route;
 };

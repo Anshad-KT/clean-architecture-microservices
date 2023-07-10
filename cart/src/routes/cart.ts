@@ -18,13 +18,11 @@ export = (dependencies: DepenteniciesData) => {
   router.get(
     "/addtocart/:product",
     currentUser,
-    requireAuth,
     addCartController
   );
   router.get(
     "/deletecart/:product",
     currentUser,
-    requireAuth,
     deleteCartController
   );
   router.get(

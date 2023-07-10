@@ -4,7 +4,7 @@ import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 interface UserAttrs {
     
     email:string
-    password:string
+    id:string
 }
 
 interface UserModal extends mongoose.Model<UserDoc> {
@@ -16,7 +16,7 @@ interface cartItems{
 }
 interface UserDoc extends mongoose.Document {
   email:string
-  password:string
+  
   cart?:cartItems[],
   version:number
 }
@@ -27,10 +27,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    password: {
-        type: String,
-        required: true,
-      },cart: []
+    cart: []
   },
   {
     toJSON: {
@@ -48,7 +45,7 @@ userSchema.plugin(updateIfCurrentPlugin);
 userSchema.statics.build = (attrs: UserAttrs) => {
   return new User({
     email:attrs.email,
-    password:attrs.password
+    _id:attrs.id
   });
 };
 

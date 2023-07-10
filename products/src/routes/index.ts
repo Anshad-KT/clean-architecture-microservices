@@ -8,5 +8,5 @@ export const routes = (dependencies: DepenteniciesData) => {
   const product = productRoutes(dependencies);
 
   route.use("/products", product);
-  return routes;
+  return route;
 };

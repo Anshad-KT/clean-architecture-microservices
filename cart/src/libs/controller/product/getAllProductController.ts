@@ -12,7 +12,7 @@ export = (dependencies: DepenteniciesData): any => {
     res: Response,
     next: NextFunction
   ) => {
-    try {
+    try { 
       const product = await getAllProducts_UseCase(dependencies).execute({
       });
 
@@ -26,4 +26,4 @@ export = (dependencies: DepenteniciesData): any => {
     }
   };
   return getProduct;
-};
+}

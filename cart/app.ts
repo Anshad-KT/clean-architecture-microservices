@@ -1,5 +1,5 @@
 import express from 'express';
-import { json } from 'body-parser';
+import { json } from 'express';
 import cookieSession from 'cookie-session';
 import {  NotFoundError } from "@anutils/common"
 import { routes } from "./src/routes";
@@ -16,7 +16,7 @@ app.use(
     signed: false,
   })
 );
-
+ 
 
 app.use("/api", routes(depentencies));
 
