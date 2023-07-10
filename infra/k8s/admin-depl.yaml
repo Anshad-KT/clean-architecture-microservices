@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin1-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin
+  template:
+    metadata:
+      labels:
+        app: admin
+    spec:
+      containers:
+        - name: admin
+          image: anshadkt/admin
+          env:
+            - name: MONGO_URI
+              value: "mongodb://admin-mongo-srv:27017/admin"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-srv
+spec:
+  selector:
+    app: admin
+  ports:
+    - name: admin
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
